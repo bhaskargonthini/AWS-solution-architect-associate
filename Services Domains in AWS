@@ -21,10 +21,13 @@ Different services in AWS:
   has some restrictions, it is lonely a web application server, you cannot install any softwares.
   -AWS ec2 is a infrastructure as a service whereas elastic beanstack is a platform as a service. Everything is pre configured in elastic beanstack.
   -it is used to quickly deplay web applications.
+  - It will host an application but only you can on;y deploy web apps quickly. You can import your websites from local or you can start designing from scratch as well.
+  But in EC2 you can do anything.
   
   3) AWS Lambda: It is a compute service that lets you run code without provisioning or managing servers.
     -It is a advanced version of EC2. you can deploy an application in it or you cannot host an application in it.
     -It is used for processing the backend code.
+    - It will not host an applicatoin
   
   4) AWS Elastic LoadBalancer: It distributes incomeing application or network traffic accross multiple targets such as amazon EC2 instances, containers, and all IP addresses in multiple
   availability Zones.
