@@ -1,0 +1,57 @@
+Different services in AWS:
+  1) compute
+  2) storage
+  3) database
+  4) security
+  5) management
+  6) customer engagement
+  7) App integration
+
+1) Compute Domain:
+    AWS EC2, Elastic Beanstalk, AWS Lambda, Autoscaling, 
+    AWS LoadBalancer, AWS ECR, AWS ECS.
+    
+  1) AWS EC2: Elastic compute cloud is one of the integral parts of the  aws ecosystme. EC2 enables on-demand,
+  scalabale computing capacity in the aws coud.
+  -Its basically a raw server that is given to you. You can do anything, make a web server or a operating system etc...you can make a ram of your choice, type of os
+  like linux or windows etc..
+  
+  2) Elastic beanstack: you can quiclky deploy and manage applications in the aws cloud without having to learn about the infrastructure
+  that runs those applications.In AWS EC2 you can make it to anything, you can make it a web server, install softwares, make database server. But whereas elastic beanstack 
+  has some restrictions, it is lonely a web application server, you cannot install any softwares.
+  -AWS ec2 is a infrastructure as a service whereas elastic beanstack is a platform as a service. Everything is pre configured in elastic beanstack.
+  -it is used to quickly deplay web applications.
+  
+  3) AWS Lambda: It is a compute service that lets you run code without provisioning or managing servers.
+    -It is a advanced version of EC2. you can deploy an application in it or you cannot host an application in it.
+    -It is used for processing the backend code.
+  
+  4) AWS Elastic LoadBalancer: It distributes incomeing application or network traffic accross multiple targets such as amazon EC2 instances, containers, and all IP addresses in multiple
+  availability Zones.
+  -Its basically keeps track of the activity of the severs. If a server is unhealthy it stops transfering server traffic to that server and sned to other healthy server
+  until it cools down. This is the main job of the Loadbalancer.
+  -For eg: If there are three servers in which the trafiic is distributed if all the three severs are healthy and working fine the loadbalancer will distributes
+  the traffic equally among all the three services. But if there is any overload in one of the server the loabalancer will stops sending the traffic to that server 
+  and diverts it to the other two server until it cools downs.
+  -If we wonder how can we decide how how much traffic is coming to deploy accordingly to servers, then the next service will comes into play which is AWS auto scaling
+  
+  5) AWS Auto Scaling: Monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possoble cost.
+  -So basically it mainatins the track of how much traffic is incoming and how to handle them by distributing the load to different instances.
+  -If the incoming traffic is going beyond 80% then the auto scaling automatically deploys additional instances to takecare of the extra load. At the same time if 
+  the incoming traffic is below 40%, it decreases the instances and allot them to other resources or keep them in idle mode.
+  
+  6) AWS Elastic container registry(ECR): It is a fully managed docker container registry that makes it easy for developers to store, manage and deploy docker 
+  container images.
+  -Basically a docker is a tool which stores many conatiners at one place, where each container is a virtual machine with separate operating system with min size
+  of 40MB. So to store these containers ECr sevres as a docker conatiner which hold all these containers at one place. Suppose if there is a windoes operating system
+  with 40mb in size conatiner this will be stored in ECR. But if you want to run this conatiner there is another service called ECS( Amazon Elastic service).
+  
+  7) Amazon ECS(amazon elastic container service): It is highly scalable,high performance orchestartion service that supports docker containers and allows you to 
+   easily run and sacle containerized applications on AWS.
+   -It basically runs these conatiners whenever necassary and if there is anything wrong with this container it relaunches it again.
+  
+  
+  
+    
+  
+   
