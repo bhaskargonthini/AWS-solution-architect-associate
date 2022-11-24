@@ -167,8 +167,98 @@ Different services in AWS:
 and the rest is given to you.
 2) save when you reserve: Giving the time of usage like 3 years of continous usage. This will enables aws to offer the discount.
 3) pay less by using more: The more you will be using instance the less the pricing will comes down.
-  
-        
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+ESSENTIALS OF CLOUD COMPUTING:
+
+CLOUD MODELS:
+
+Public, Private, Community and hybrid cloud models.
+1) Public cloud model: 
+   --Public services are owned by the cloud service providers and services are delivered over internet.
+   -- Unlimited resources, multi tenant systems and resilient towards any failures(can be repaired in no time). Maintainance can be taken care by the service 
+   providers.
+    --Best suited for: Variable workload, Test & developement
+    --Advantages: Lowest TCO(Total cost of ownership), Faster deployment and rapid elasticity.
+    --Challenges: Data security and privacy.
+    -- when you need to conduct a survey in several geographic locations, public model is best, after completing the surveys
+    and collecting the required data you can simply terminate the instances on those locations if we are not using anymore.
+    
+2) Private cloud: It is operated soley for a specific organization and the infrastructure can be build on premise or online.
+    --Single tenant, data location can be anywhere. Compliance and regulatory requirements.
+    --Best suited for: sensitive data and legal compliance.
+    --Advantages: Security and control. Optimized performance.
+    --Challenges: High cost of ownership and skillset is required.
+    egL Givernment agencies uses this private cloud and it is highly costly.
+
+3) community cloud model: It will be shared by serveral organizations for a common purpose and the services are offered through internet.
+    --Infrastructure is shared, multi tenant and community driven governanance.
+    --Best suited for: Collaboration of universities, groups of hospitals.
+    --Advantages: Lowest TCO and rapid Elasticity.
+    --Complex IT governance an skillset.
+
+4) Hybrid model: It is combination of one or two cloud models based on the requirement. Eg: private and public or public and community.
+    --benefits of both private and public deployment models.
+    --Data exchanges between public and private clouds.
+    --control over semsitive assets, flexible.
+    --Cloud burst is possible in times of high traffic, it can easily goes from public to private model based on the occassions.
+    --Best suited for: Cloud bursting, on demand access and sensitive data
+    --Advantages: Lowest TCO, high performance, Rapid elasticity and highly customizable.
+    --Challenges: Portbilty, migration and integration
+
+
+CLOUD SERVICE MODELS:
+  1)Software as a service(SaaS):
+    --Readily available software application that are already designed and programmed
+    --Accessed through web browser
+    --No visibilty over backend.
+    --Billed based on subscription
+    Eg: Microsoft office 365, google apps, microsoft teams and slack channel.
+  2) platform as a Service(PaaS):
+      --Provides platforms for developing and hosting apps on the Cloud service providers' infrastructure, reducing infrastructure management effort 
+      --Runtime, platfrom and tools are set up by the creator
+      --No management effort.
+      --Less control over infrastructure since the service provider mostly controls it.
+      --Control over the application code we desgin and program.
+      Eg: App cloud from salesforce.com, google App Engine(GAE) from google cloud platform, openshift from red hat and oracle cloud platform from oracle
+  3)Infrastructure as a service(IaaS):
+      --Compute, storage and network resources.
+      --Control over the OS and cloud storage devices.
+      --configure development environment remotely.
+      Eg: Elastic compute cloud(EC2) from Amazon web services
+          virtual machines from azure
+          google compute engine(GCE) from google cloud platform.
+         
+         
+ SERVERLESS SERVICE:
+ 
+    --It allows you to focus on only business productive functionalities rather than the IT infrastructure and management.
+    --Capacity provisioning, patching operating systems and other functions are managed by the service providers
+    --Reduces Total cost of ownership.
+    --Highly available and fault tolerant
+    --Also known as function as a service.
+    Eg: Consider a weather update in web application, when a user clciks on the weather update, the serverless function invoked and retrieves the data and
+    send the response.
+    This results in we only get charged for the event of execution only not the times taken to process the event and time taken to get the response from the server.
+    --Cost effective option.
+    Serverless Service(FaaS)                                               |         Platfom as a service(PaaS)
+    Scales automatically based on the traffic based on number of requests  |      Scales automatically by adding adding additional instances running
+    runs for a short tenure, only when invoked                             |       Typically runa 24*7
+    Less control over deployment environment                               |    developers has More control over deployment environment
+    precise pricing, You will pay per use only.                            |  Cost may incur for few instance hours with less utilization.
+    
+    
+    
+    
+    
+    
+    
+      
+    
+          
+      
      
      
      
