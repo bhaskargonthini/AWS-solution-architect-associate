@@ -197,12 +197,12 @@ Public, Private, Community and hybrid cloud models.
     --Infrastructure is shared, multi tenant and community driven governanance.
     --Best suited for: Collaboration of universities, groups of hospitals.
     --Advantages: Lowest TCO and rapid Elasticity.
-    --Complex IT governance an skillset.
+    --Complex IT governance and skillset.
 
 4) Hybrid model: It is combination of one or two cloud models based on the requirement. Eg: private and public or public and community.
     --benefits of both private and public deployment models.
     --Data exchanges between public and private clouds.
-    --control over semsitive assets, flexible.
+    --control over sensitive assets, flexible.
     --Cloud burst is possible in times of high traffic, it can easily goes from public to private model based on the occassions.
     --Best suited for: Cloud bursting, on demand access and sensitive data
     --Advantages: Lowest TCO, high performance, Rapid elasticity and highly customizable.
@@ -244,10 +244,111 @@ CLOUD SERVICE MODELS:
     This results in we only get charged for the event of execution only not the times taken to process the event and time taken to get the response from the server.
     --Cost effective option.
     Serverless Service(FaaS)                                               |         Platfom as a service(PaaS)
-    Scales automatically based on the traffic based on number of requests  |      Scales automatically by adding adding additional instances running
-    runs for a short tenure, only when invoked                             |       Typically runa 24*7
-    Less control over deployment environment                               |    developers has More control over deployment environment
-    precise pricing, You will pay per use only.                            |  Cost may incur for few instance hours with less utilization.
+    -Scales automatically based on the traffic based on number of requests |      Scales automatically by adding adding additional instances running
+    -runs for a short tenure, only when invoked                            |       Typically runa 24*7
+    -Less control over deployment environment                              |    developers has More control over deployment environment
+    -precise pricing, You will pay per use only.                           |  Cost may incur for few instance hours with less utilization.
+    
+MAJOR CLOUD SERVICE PROVIDERS: 1) AWS 2) AZURE 3) Google cloud
+
+VIRTUALIZATION:
+  Instead of creating phyisical machines for business, virtual machines helps to readily available and takes less TCO.
+  -- Isolates workloads hosted on physical infrastructure.
+  -- Virtual machines are created from the physical infrastructure.
+  --Hypervisor manages resources for virtual machines.
+  -- Each VM is an isolated environment.
+  Two types: 
+      1) bare metal virtualization. does not contain any OS on the host. eg: vmware etc..
+      2) Hosted virtualixation: contains an OS to run and maintain the administrative functions. eg: orcale, vmbox etcc/
+      
+      Important questions:
+      You are an architect for an enterprise that aims to develop online games with low latency and high performance. 
+      which of the following approaches would you choose to deploy the game?
+      high performance. Which of the following approaches would you choose to deploy the game?
+      Ans: Leverage bare metal or Type 1 hypervisor as it delivers at low latency. TYPE1 or bare metal.
+
+CONTAINERS: 
+    Why containerization is performed?
+    With these cloud technologies there is a need for the applications to deploy at anywhere anytime. This made the containerization comes into play
+    --Need to deploy on multiple IT environments. eg: apache,php,rhel ==> container
+    -- Makes the need of responsive applications with low cost
+    -- Improve resource utilization
+    --Architecting suitable apps
+    
+    What are containers:
+      --It offers light weight runtime environment for app deplayment.
+      --Bundles all the required dependencies. 
+          App1 -- App2 -- App3-->Docker engine-->host operating system-->host hardware
+     Benefits of containers:
+        --Rapid scalability
+        --Uses less resources
+        --increased portability
+        --greater efficiency.
+        
+      Difference between Containers and virtual machines:
+        Containers:                                               Virtual machines:
+        Boots in milli seconds                                    Boots in minutes
+        Requires less resources such as memory, storage etc...    Needs more resources
+        Higher isolatoin level                                    Lower isolation level
+        Highly portable                                           Highly portable
+        Shares OS libraries and kernal                            Doesn't shares OS with the host machine
+        No hypervisor required                                    Requires a hypervisor
+        
+    Containerization using docker:
+        --Open source docker engine
+        --provides both linux and windows based containers
+        --Containerized applications run anywhere consistently
+        --Docker CLI, API
+        --you can build custom docker container using docker image registry
+ 
+ CLOUD NATIVE APPLICATION DEVELOPMENT:
+      1) Microservices: This approach integrates the scalable nature. If one is failed other instances will helps the job done.
+          Advantages: Independent, High fault tolerance and enables continous delivery, supported well by containers and scalabilty and reusability
+      2) Devops: It is collection of tools and practices that enables high velocity development., Agile in development.
+      3) CI/CD(continous integration/continous delivery): 
+          --Automates software release process
+          --Code chages trigger release pipeline automatically
+          --allows numerous deployements in a short span
+          Any changes made in the source code will automatically trigger the other stages and deploy the new product without manullay changing the other stages.
+      4) containers:
+           --Containers support cloud native development
+           --container is the basic unit of compute capacity
+           --faster start up time and rapid scaling.
+           
+      CLOUD MIGRATION:
+      CLOUD SECURITY:
+            Security Threats in cloud:
+              unauthorized access, data at rest: Data at one place is vulnerable for attacks. Data in transit: Data traffic in the cloud might be interupted by other
+              networks and leakge of data is possible.
+            Corporate Datacenter security                                      | Cloud security
+            Complete control over the infrastructure protection                | Physical security of the infrastructure is managed by cloud service provider
+            Higher total cost of ownership                                     | Lower TCO
+            API's to be created to mitigate critical scurity threats           | Provides secure API's to work with cloud resources
+            Continous resources monitoring is to be performed                  | CSP's monitor physical hardware, you need to monitor access to your assets
+        Cloud vendor is responsible for security of the cloud:
+            Software security, network security and gloabl infrastructure security
+        Customer is responsible for security IN the cloud:
+            Firewall configuration, data security at rest and in transit and also access control.
+            Cloud security features:
+              --Organization policies
+              --access control
+              --encryption
+              --compliance, monitoring and auditing
+            Best practices:
+            --Understand the shared responsibility model- most of the acses the security breaches happens due to the indequate understanding of the responsibilty model.
+            --Always encrypt your data at transit or rest.
+            --Use github secrets or Aws msecrets manager etc..
+            --Do not leave out security credentials and tokens.
+            Mitigate unauthorized access.
+            
+        
+              
+      
+          
+ 
+      
+
+
     
     
     
