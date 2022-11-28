@@ -7,7 +7,6 @@
   6) customer engagement
   7) App integration
 
-
 1) Compute Domain:
     AWS EC2, Elastic Beanstalk, AWS Lambda, Autoscaling, 
     AWS LoadBalancer, AWS ECR, AWS ECS. 
