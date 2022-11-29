@@ -345,6 +345,134 @@ CONTAINERS:
  
  AWS SERVICES OVERVIEW:
  
+  AWS COMPUTE SERVICES:
+   1) Amazon EC2(Elastic Compute cloud): Elastic compute cloud is one of the integral parts of the  aws ecosystme. EC2 enables on-demand,
+       scalabale computing capacity in the aws coud.
+       -Its basically a raw server that is given to you. You can do anything, make a web server or a operating system etc...you can make a ram of your choice, type of os
+       like linux or windows etc..
+       --Provides scalable computing
+       --Launch as many or as few virtual servers as you need
+       --configure security and networking and manage storage.
+     Amazon EC2 Features:
+     Amazon Machine image: Its a template that defines OS for the serves. This will helps you launch new servers thats already have custom applications and start running
+       them instantly without any delay.
+       Instance Types: This configures the ram, performance and storage of the EC2 instance
+       Key pairs: Use a private key instead of password. We need to provide the private key to login to your server, Once lost we cant access the server. It can never be
+       recovered. It must be protected carefully.
+       Instance store volumes: For temporarily store the data and will be gone after logged out of the server.
+       Amazon EBS volumes: These are  used to quickly access the data since these are fast devices.
+       Regions and availability zones: Amazon Ec2 services can be launched anywhere anytime if we had a system and active internet connection.
+       Security groups: They allow you to provide ports and network traffic.
+       Elastic IP addresses: This feature provides static and dynamic ip addresses for dynamic cloud computing.
+       Tags: tags helps you to classify the resources.
+       Virtual private cloud: Helps you to decide which amazon vpc you want to launch.
+   AWS EC2 pricing models:
+    1) On demand instances: The payment will done in hourly or seconds type. No need to commit for the long term and also pay for what you use.
+      --No Up-front payment or long term commitment.
+      --Worloads that cannot be interupted.
+      --Developed or tested on amazon EC2 for the first time.
+      --a1.medium costs 0.0255$ per hour.
+      --a1.large 0.051$ per hour
+    2) Spor Instances: Needs in such case of high computing in short time. Gets upto 90% discount.
+       --Uses for Flexible start and end times, Have committed term usage 
+       --Very low compute prices.
+       --Urgent computing needs
+       --a1.medium costs 0.0049$ per hour a1.large $0.0098 per hour. 
+    3) Reserved instancs: Can be used for a long time committment like 1 year or more.
+        --Applications with steady state usage
+        --Applications that need reserved capacity
+        --Avaialable for 1 or 3year term
+        a1.medium - $0.015 per hour and a1.large $0.030 per hour.
+        EBS: Amazon Elastic block store: Provides elastic block storage for the EC2.
+           --EBS has 4 different types of volumes types to meet the anytype of workloads.
+           SSD: Delivers low latency and highest iops
+           HDD: Provides highest throughput.
+           
+ AWS Elastic Beanstalk:  you can quiclky deploy and manage applications in the aws cloud without having to learn about the infrastructure
+  that runs those applications.In AWS EC2 you can make it to do anything, you can make it a web server, install softwares, make database server. 
+  But whereas elastic beanstack has some restrictions, it is lonely a web application server, you cannot install any softwares.
+  -AWS ec2 is a infrastructure as a service whereas elastic beanstack is a platform as a service. Everything is pre configured in elastic beanstack.
+  -it is used to quickly deploy web applications.
+  - It will host an application but only you can only deploy web apps quickly. You can import your websites from local or you can start designing from scratch as 
+  well.But in EC2 you can do anything.
+  
+  Why we need Beanstalk: For ex, Jack is a developer and he wants to focus on writing a code and does not want to divert his attention to systme administration.
+    like spending lot of time confirguring managaing server loadbalancers and data networking instead of coding. To focus on only on coding and let others take 
+    care of the system administration tasks.
+      Elastic beanstalk helps this way, It is easy to use and deplot and scale applicatons.
+      eg: Java,.net,node.js,python, ruby and docker etc.. can run easily.
+      --You just need to write the code and upload it. 
+      
+AWS Lambda: 
+    It is a compute service that lets you run code without provisioning or managing servers.
+    -It is a advanced version of EC2. you can deploy an application in it but you cannot host an application in it.
+    -It is used for processing the backend code.
+    - It will not host an application.
+    --Why Lambda?
+      When you need lots of fucntionalities like uploading an image, in app purhcases and website clicks. All these funcitons will happen only by running specific 
+      codes designed in back end. But managing back end codes, manage operating systems, apply security patchs and scale the servers when there is huge traffic 
+      is not possible practically, this is where lambda comes into play.
+      AWS Lambda is a compute service that runs your back end code and responds to events such as objects uploads to amazon s3 bucket and updates amazon dynamodb table
+      or manages data in kinesis stream or controls in app activity. Once you upload the code in the lambda it controls all these additional functionaltites like
+      manages OS, patches security alerts, responds to the events, scaling and administration  and sends the real time matrics and logs to the amazon cloud watch.
+      all we need to do write the code. We simply charged for the usage we did in the server.
+       
+      
+
+ AWS Storage Domain:
+    1) Amazon S3
+    2) Amazon Glacier
+    3) Amazon Elastic file system
+    4) AWS Storage Gateway
+    1)Amazon S3(Amazon simple Storage Service): It is an object storage service that offers industry-level scalability, security and performance.
+      User--> File uploaded or dowmload--> Internet--> Amazon S3 bucket
+    Storage domain typically contains the binary file slike images, music files, videos and others. These will be stored in these service. Like, In a web page
+    the images, gifs and videos should be loaded when the website opens so all these files are retrieved from here.
+    --provides easy to use management features.
+    Features of S3: 
+      --store as much as you need
+      --Keep multiple verions of objects
+      --Host static websites.
+      --replication of data if data is lost andneed to back up.
+      --pay as you use.
+      --has different storage class.
+    S3 Use cases:
+    --Back up and restore
+    --disaster recovery
+    -- Archive data--> S3 glacier and deep arcive are cost effectitve for archiving the data
+    --For big data analytics.
+    --Hybrid cloud storage
+    --cloud native applications.
+  1) Amazon S3 Storage Classes:
+     There are different types if storage classes in S3:
+     1) S3 Standard: Used when data objects are most frequeltnly accessed.
+     2) S3 Standard IA: Used when data objects are less frequently accessed.
+     3) S3 Intelligent Tiering: For changing the data class from S3 standard and S3 standard IA if necessary can be done in this class. 
+     4) S3 One Zone-IA: Its present in one available zone only and the price is 20% less than others.
+     5) S3 Glacier: durable of 99.999% of objects across multiple AZ's
+     6) S3 Glacier Deep Archive:  This is for retaining the data for very long time, Its rarely accessed. Financial services,, health care
+         weather etcc.. data can be stored here.
+   2) AWS glacier: It is a secure, durable and extremely low cost cloud storage service for data archiving and long term-back up
+        server--> backup-->amazon s3 glacier.
+     Glacier is strictly a back up service and low cost. It takes more time to retrive the files from here.
+   
+   3) Amazon Elastic file System(EFS): It provides a simple, scalable, elastic filesystem for linux based workloads for use with AWS cloud services and on-premises
+       resources
+       - The best advantage of EFS is, It can be mounted on your server or computer and can be avaialble for all other servers which it is mutually shared.
+          When you create a windows server EFS will create a volume for itself and it can be shared with other netwroks if necessary. It acts as a a shared drive
+          for 10's and 1000's of computers which is having the same volume. inside them and that same volume would be EFS. The changes in one system will be changed in other systems 
+          as well. Can be mounted in both windows and Linux as well.
+         
+          
+   4) AWS Storage Gateway: It connects an on-premise software appliance with cloud based storage to provide seamless integration with data security features between
+   your on-premises IT environment and the AWS storage infrastructure.
+   - On premises Application ---> AWS Storage Gateway ---> AWS cloud Infrastructure.
+         
+   
+    
+     
+    
+ 
  
               
       
