@@ -467,6 +467,39 @@ AWS Lambda:
    4) AWS Storage Gateway: It connects an on-premise software appliance with cloud based storage to provide seamless integration with data security features between
    your on-premises IT environment and the AWS storage infrastructure.
    - On premises Application ---> AWS Storage Gateway ---> AWS cloud Infrastructure.
+
+ 2) AWS glacier: It is a secure, durable and extremely low cost cloud storage service for data archiving and long term-back up
+        server--> backup-->amazon s3 glacier.
+     Glacier is strictly a back up service and low cost. It takes more time to retrive the files from here.
+   
+   3) Amazon Elastic file System(EFS): It provides a simple, scalable, elastic filesystem for linux based workloads for use with AWS cloud services and on-premises
+       resources
+       - The best advantage of EFS is, It can be mounted on your server or computer and can be avaialble for all other servers which it is mutually shared.
+          When you create a windows server EFS will create a volume for itself and it can be shared with other netwroks if necessary. It acts as a a shared drive
+          for 10's and 1000's of computers which is having the same volume. inside them and that same volume would be EFS. The changes in one system will be changed in other systems 
+          as well. Can be mounted in both windows and Linux as well.
+          
+   4) AWS Storage Gateway: It connects an on-premise software appliance with cloud based storage to provide seamless integration with data security features between
+   your on-premises IT environment and the AWS storage infrastructure.
+   - On premises Application ---> AWS Storage Gateway ---> AWS cloud Infrastructure.
+   
+AWS Networking services:
+  Amazon VPC(Virtul private cloud): It lets you set up the aws cloud in a logically isolated section
+     --Have complete control over your virtual networking
+     --Easily customize the network configuration.
+     --use multiple layers of security.
+   Amazon VPC componenets:
+     --Subnet: a range of IP addresses is a subnet, while launching the resource we can specify the subnet. A public subnet can accessible from the internt and the private subnet does 
+     not accessible from the internet.
+     --route table: A set of rules that guides network traffic in amazon vpc. A subnet is particularly associated with a route table otherwise it is
+       implicitly associated with a route table. Every route in a route table has specific range of IP adrressses where you want the traffic to be directed i.e the destination in the
+       gateway.
+     --Internet gateway: Its a virtual device which connects the vpc and internet. 
+     --NAT gateway: you can use NAT gateway to enable instances in private subnet connect to the internet.
+     --VPC end points: Using vpc end point we can create a private connection between vpc and suuported aws services like s3, ec2 etc..
+     --VPC peering: this feature for enabling communcation between two vpc's over the private IP addresses. VPC peering is possible between the vpc in different regions
+       in different aws accounts.
+     
          
    
     
