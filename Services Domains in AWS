@@ -354,18 +354,18 @@ CONTAINERS:
        --Launch as many or as few virtual servers as you need
        --configure security and networking and manage storage.
      Amazon EC2 Features:
-     Amazon Machine image: Its a template that defines OS for the serves. This will helps you launch new servers thats already have custom applications and start running
+   Amazon Machine image: Its a template that defines OS for the serves. This will helps you launch new servers thats already have custom applications and start running
        them instantly without any delay.
-       Instance Types: This configures the ram, performance and storage of the EC2 instance
-       Key pairs: Use a private key instead of password. We need to provide the private key to login to your server, Once lost we cant access the server. It can never be
+   Instance Types: This configures the ram, performance and storage of the EC2 instance
+   Key pairs: Use a private key instead of password. We need to provide the private key to login to your server, Once lost we cant access the server. It can never be
        recovered. It must be protected carefully.
-       Instance store volumes: For temporarily store the data and will be gone after logged out of the server.
-       Amazon EBS volumes: These are  used to quickly access the data since these are fast devices.
-       Regions and availability zones: Amazon Ec2 services can be launched anywhere anytime if we had a system and active internet connection.
-       Security groups: They allow you to provide ports and network traffic.
-       Elastic IP addresses: This feature provides static and dynamic ip addresses for dynamic cloud computing.
-       Tags: tags helps you to classify the resources.
-       Virtual private cloud: Helps you to decide which amazon vpc you want to launch.
+   Instance store volumes: For temporarily store the data and will be gone after logged out of the server.
+   Amazon EBS volumes: These are  used to quickly access the data since these are fast devices.
+   Regions and availability zones: Amazon Ec2 services can be launched anywhere anytime if we had a system and active internet connection.
+   Security groups: They allow you to provide ports and network traffic.
+   Elastic IP addresses: This feature provides static and dynamic ip addresses for dynamic cloud computing.
+   Tags: tags helps you to classify the resources.
+   Virtual private cloud: Helps you to decide which amazon vpc you want to launch.
    AWS EC2 pricing models:
     1) On demand instances: The payment will done in hourly or seconds type. No need to commit for the long term and also pay for what you use.
       --No Up-front payment or long term commitment.
@@ -373,7 +373,7 @@ CONTAINERS:
       --Developed or tested on amazon EC2 for the first time.
       --a1.medium costs 0.0255$ per hour.
       --a1.large 0.051$ per hour
-    2) Spor Instances: Needs in such case of high computing in short time. Gets upto 90% discount.
+    2) Spot Instances: Needs in such case of high computing in short time. Gets upto 90% discount.
        --Uses for Flexible start and end times, Have committed term usage 
        --Very low compute prices.
        --Urgent computing needs
@@ -399,7 +399,7 @@ CONTAINERS:
   Why we need Beanstalk: For ex, Jack is a developer and he wants to focus on writing a code and does not want to divert his attention to systme administration.
     like spending lot of time confirguring managaing server loadbalancers and data networking instead of coding. To focus on only on coding and let others take 
     care of the system administration tasks.
-      Elastic beanstalk helps this way, It is easy to use and deplot and scale applicatons.
+      Elastic beanstalk helps this way, It is easy to use and deploy and scale applicatons.
       eg: Java,.net,node.js,python, ruby and docker etc.. can run easily.
       --You just need to write the code and upload it. 
       
@@ -426,14 +426,14 @@ AWS Lambda:
     4) AWS Storage Gateway
     1)Amazon S3(Amazon simple Storage Service): It is an object storage service that offers industry-level scalability, security and performance.
       User--> File uploaded or dowmload--> Internet--> Amazon S3 bucket
-    Storage domain typically contains the binary file slike images, music files, videos and others. These will be stored in these service. Like, In a web page
+    Storage domain typically contains the binary file like images, music files, videos and others. These will be stored in these service. Like, In a web page
     the images, gifs and videos should be loaded when the website opens so all these files are retrieved from here.
     --provides easy to use management features.
     Features of S3: 
       --store as much as you need
       --Keep multiple verions of objects
       --Host static websites.
-      --replication of data if data is lost andneed to back up.
+      --replication of data if data is lost and need to back up.
       --pay as you use.
       --has different storage class.
     S3 Use cases:
@@ -444,12 +444,12 @@ AWS Lambda:
     --Hybrid cloud storage
     --cloud native applications.
   1) Amazon S3 Storage Classes:
-     There are different types if storage classes in S3:
+     There are different types of storage classes in S3:
      1) S3 Standard: Used when data objects are most frequeltnly accessed.
      2) S3 Standard IA: Used when data objects are less frequently accessed.
      3) S3 Intelligent Tiering: For changing the data class from S3 standard and S3 standard IA if necessary can be done in this class. 
      4) S3 One Zone-IA: Its present in one available zone only and the price is 20% less than others.
-     5) S3 Glacier: durable of 99.999% of objects across multiple AZ's
+     5) S3 Glacier: durable of 99.999% of objects across multiple AZ's, used for back up files
      6) S3 Glacier Deep Archive:  This is for retaining the data for very long time, Its rarely accessed. Financial services,, health care
          weather etcc.. data can be stored here.
    2) AWS glacier: It is a secure, durable and extremely low cost cloud storage service for data archiving and long term-back up
@@ -489,16 +489,150 @@ AWS Networking services:
      --Easily customize the network configuration.
      --use multiple layers of security.
    Amazon VPC componenets:
-     --Subnet: a range of IP addresses is a subnet, while launching the resource we can specify the subnet. A public subnet can accessible from the internt and the private subnet does 
-     not accessible from the internet.
+     --Subnet: a range of IP addresses is a subnet, while launching the resource we can specify the subnet. A public subnet can accessible from the internt and the
+     private subnet does not accessible from the internet.
      --route table: A set of rules that guides network traffic in amazon vpc. A subnet is particularly associated with a route table otherwise it is
-       implicitly associated with a route table. Every route in a route table has specific range of IP adrressses where you want the traffic to be directed i.e the destination in the
-       gateway.
+       implicitly associated with a route table. Every route in a route table has specific range of IP adrressses where you want the traffic to be directed i.e the
+       destination in the gateway.
      --Internet gateway: Its a virtual device which connects the vpc and internet. 
      --NAT gateway: you can use NAT gateway to enable instances in private subnet connect to the internet.
      --VPC end points: Using vpc end point we can create a private connection between vpc and suuported aws services like s3, ec2 etc..
      --VPC peering: this feature for enabling communcation between two vpc's over the private IP addresses. VPC peering is possible between the vpc in different regions
        in different aws accounts.
+   Introduction to amazon cloudfront:
+      It is a fast, highly secure and programmable content delivery network service.
+      --You can deliver content to millions of users ata a itme and it can be static or dynamic content.
+      --You can securely deliver the content to your customer securely, Cloudfront provides free certificate  from amazon certificate manager 
+      --cloudfront also sheilds the network 4,5 level security threats
+      --cost effective
+   Introduction to Amazon route 53:
+        Usually DNS(Domain name system) works as a language of numeric IP adresses from one computer to another computer by reading different site anme like www.google.com, facebook.com etcc....
+        Route 53 is a DNS service that gives developers and adminsitrators helps a cost effective way to route end users to internet applications.
+          --It integrates seamlessly with other aws services like ec2, s3 and cloudfornt etcc to work together effectively for better outcome
+          --If one end user is failed it will reroutes to other end point as an alternative
+          --It gives 100% availability, integrates easily with other aws services and helps improves reliabilty with traffic flow.
+          
+AMAZON DATABASE SERVICES:
+      1) Amazon RDS
+      2) DynamoDB
+      3) Amazon RedShift
+      4) Elasticache
+    
+    1) Amazon RDS(Amazon Relational Database Service):
+        It makes it easy to set up, Operate and scale a relational database in the cloud.
+        --It is a service under where we can lauch many services like amazon aurora, mariaDb, mysql, microsoft server etc... But RDS basically manages these
+        databases.
+        Why RDS: To maintain databse services one has to overcome the challeges like
+        --patching,installation, hardware upgrades, security, scaling, backups, performance tuning, monitoring etc...
+     Amazon RDS can handle all these challenges at one place.
+      --Can create and scale relational database easi;y, automates time consuming administration and lets developers soley focus on the 
+      application management instead of worrying about the infrastructure management.
+      -- You can choose any of the six amazon rds types for your business needs:
+      postgreSQL, Amazon aurora, MYSQL, Oracle, MariaDB and SQL server.
+    Benefits of RDS:
+      --easy to administer
+      --highly scalable, available and durable
+      --fast, secure and cost effective.
+      
+        
+       
+    2) Amazon DynamoDB: It is a key-value and document database that delivers  millisecond performances at any scale.
+        --It is a NO SQL database, No SQL means whenever you collect unstructured data like the data which does not have any format like sqlm then DynamoDB comes
+        into play which manages these kinds of data.
+        With all the new database engines and new challenges to store the data sequentially, Amazon dynamo DB helps to scale huge requests, handles lots of traffic at a time
+        During amazon sales day, great indian festival dynamo DB helps to scale the usage of the database services.
+        --It is safe and secure way to handle database services and can handle one trillion requests per day.
+        
+    3) Amazon RedShift: It is a fast, scalable data warehouse that makes it simple and cost effective to analyse all your data accorss your data 
+    warehouse and data lake.
+    --It is a warehouse where multiple database engines are stored and manages to gives output whenever necessary.
+      -- Input--> All data is stored in the S3 bucket--> Redshift--> Output.
+      --processing and retrieving data from the data warehouses without worrying about the datawarehouse.
+      -- But maintaining data warehouses is very costly and challenging.
+      --So Amazon redshift overcomes all these challenges
+      --Amazon redshift serverless allows you to start, run and get data analystics in fast way possible without thinking about the warehouse management.
+      -- It automatically scales and provisions the warehouse management where you only need to focus on insights of the data 
+      --It can allow share and query live data across organizatoins, accounts and even regions.
+      
+      
+   4) Amazon Elastic cache: It can be used to seamlessly deploy, run and scale popular open source compatible in-memory data stores.
+     It is a layer between client and the server, whenever a client is asking for some data, when he writes the query and submits it, the elastic cache process it and 
+     gives the output. when the same query is asked again multiple times, then elastic cache stores these frequemtly asked queries and gives the output instantly without
+     wasting time by running the query again. It saves the overhead time and increases performance.
+     
+     
+AMAZON DEVELOPER TOOLS:
+  1) Introduction to AWS Cloud9: 
+  2) Introduction to AWS CodeCommit:
+      As your project and developement team grows larger finding a  highly available and secure ways to store version code becomes a challenging and costly, 
+      Its easy if we dont need to bother about managing instead focusing on code development.codecommit will solve this problem by giving all these functions in one platform.
+     Code Commit will helps in,
+     -- Secure, highly scalable and private git repositories.
+     --No hardware to manage and software to patch up. It is highly scalable, available and accessible.
+     --with code commit we can store binaries, images, and libraries.
+     --AWS code commit auttomatically encrypts your files in transit and at rest too. We dont need to worry about security.
+     --It integrated with identity and access management, this lets you control who has access to which application. One can chage the access from time based, 
+     region based etc..
+   3) Introduction to AWS CodeBuild:
+     With able to keep up with the competetion software developers need to deliver code changes to allow them in different set of applications and devices.
+     --This includes rapidly build and test code. But when there is athreshold developers need to wait for the long waiting time to build the code.
+     --AWS code build is fully managed continous integration service that can compiles source code, runs tests and produces build artifects. your team just needs to 
+     focus on commit code changes and code build will handles the code building, testing and compiling concurrently without any delay.
+     --You pay for only the build minutes you use. You can bring build your own environment or you can use already pre compiled environments.
+   4) Introdcution to AWS CodeDeploy:
+      Every developer always in a loop of developing the code, tetsing it and deploying it to the production. But Manually deploying the server will takes long time
+      results in errors and downtime. It causes complex and hard to maintain
+      --It would be nice if we automates the deployment of your application and you can rapidly deploy into production.
+      --AWS Codedeploy, A service that can coordinates application deployment and updates across amazon EC2 instances of any size.
+      --It automates your application deployment getting rid of the the need to do things manually.
+   5) Introduction to AWS CodePipeline:
+      In today's booming IT industry, developing applications rapidly and deploying them is the core success fo the many software companies.
+      Using traditional software process delivering and testing applications fastly is difficlut and error prone where Code updates are manullay developed, tested 
+      and deployed. What is all the software process is automated and allows you to test and release the code more frequently.
+      AWS CodePipeline:
+      --It allows you automatically test, deploy the code automatically without any delay.
+      --There will graphical funcitonality in the service where you can able to manage the code deployment's entire process.
+      --It works as pipeline where in each segment, it will automatically do its job like testing, building and deploying etc..
+      --Once the pipeline is ready, It will automatically build, test and deploys the code.
+      --It sets manual approval at each stage of the pipeline whether we need to approve or deny the code feature if it does not meet the standards.
+      --Code pipeline also stops the pipeline whenever an action fails to comply its rules such as unit test failure.
+      --It checks the minor and major bugs rapidly and deploy the code more frequently. this allows us to focus more on core product.
+      --Code pipeline is extensible and works with variety of source code, build, testing and deployment tools from AWS or third parties. It enables us to use 
+      different services at each stage of pipeline.
+ 
+ Introduction to AWS Monitoring and auditing Services:
+   1) AWS Config: 
+     -- AWS resources configuration evaluation
+     --Review relationships
+     --Detailed configuration histories
+     --Compliance check.
+   2) AWS Trusted advisor
+     --provision resources following AWS best practices
+     -- Covers-cost optimization, performance, security, fault tolerance and service limits
+     --Recommendations provided.
+   3) Inspector: 
+     --Vulnerabilities check
+     --Detialed assessment reports
+     -- check for vulnerabilties on EC2 instances.
+   3) Flow logs:
+     --IP traffic capturing
+     --Charges to deliver logs to  s3 apply
+     --VPC, a sbunet or a network intefere.
+   4) AWS cloud trail:
+     --AWS account auditing and compliance check
+     --tracking and troubleshooting
+   5) AWS cloudwatch:
+     --monitoring and observability service
+     --logs, metrics and events
+     --set alarms and automate actions.
+     
+     
+AWS Identity services:
+        
+      
+      
+     
+   
      
          
    
