@@ -672,7 +672,13 @@ AWS Identity services:
 
 AWS- COMPUTE AND NETWROK SERVICES:
 
-
+ Running workloads on EC2:
+   Amazon machine Image(AMI): When EC2 instance is launched, An AMI is the first thing that must  be selected, 
+      --It is a read only file systme
+      --It includes OS-Windows or linux or other softwares before launching an instance
+      --AMI ID is specific to a region.
+      
+    
         
       
       
