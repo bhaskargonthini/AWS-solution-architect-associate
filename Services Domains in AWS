@@ -628,6 +628,47 @@ AMAZON DEVELOPER TOOLS:
      
      
 AWS Identity services:
+   When using a sinble aws account from  multiple users will concurr some problems with eprmissions to the data, unauthorized access. AWS IAM will helps in 
+   maintain these multiple logins and administartes it.
+   --IAM is global service
+   --create and manage IAM users and groups
+   --use permissions to define authorization
+   --no additional charge
+   Use cases:
+    access control: 
+      --Control accss to aws services and resources
+      --condition based controlling
+     Multifactor authentication:
+       --No extra cost
+       --Users should provide physical possession of MFA enablesmobile device and a hardware MFA token.
+     Analyze access
+       --Analyze access across your aws enivironment
+       --principle of leasr privilege
+     Integrate with corporate directory
+       --Federated access
+       --use SAML 2.0 or use one of AWS's federation samples
+       
+     There are three types of identities in IAM: users, groups and roles
+       --Users: represents person that uses IAM account
+                Grant permissions by adding an IAM account to a group. permission of an IAM user can be cloned to another user when nw user is addedd.
+       --Groups: Collection of IAM users is called groups
+                 Use groups to specify permissions for a collection of users, If you want to restrict some users for the specific tasks create a group with those 
+                 permissions and add the users to that group. Eg: If we want some users should have access to admin then create a group with admin permissions
+                 and add users to that admin group.
+       --Roles:  contains policies, but unlike users it does not need any credentials associated with it.
+   Introduction to amazon congnito:
+      Imagine you are playing a game in your mobile device and you made it to 50 level in that game and suddenly you switched to tablet device with same login credentials 
+      but you noticed that the game reset to 1st level. This is because the failure to integrate  accounts with multiple  devices. this needs a backend code to be 
+      developed by the creator additionally. Instead AWS amazon cognito helps in maintain this user data in multiple platforms withour losing any saved data.
+      You can login as a guest and startt doing your work later you can add your account and still it will be reflected in all of your devices.
+      You just ned to synch to amazon congnito.
+      
+    Introduction to Amazon SSO(single sign on):
+      If you have many users with diferent types of softwares and app login credentials.  All this data must be stored somewhere and have to maintain these login 
+      attempts separately which might take an extra cost, infrastructure and expertise. Amazon Single sigh on will helps in this sector to let users to access all
+       of their business accounts and softwares in one go after login into their respective aws sso portal.
+       
+      
         
       
       
