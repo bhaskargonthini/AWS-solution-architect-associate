@@ -672,7 +672,7 @@ AWS Identity services:
 
 AWS- COMPUTE AND NETWROK SERVICES:
 
- *runninng workloads on EC2:
+RUNNING WORKLOADS ON EC2:
    Amazon machine Image(AMI): When EC2 instance is launched, An AMI is the first thing that must  be selected, 
       --It is a read only file systme
       --It includes OS-Windows or linux or other softwares before launching an instance
@@ -730,7 +730,59 @@ AWS- COMPUTE AND NETWROK SERVICES:
            - One instance can be associated with multiple SGs.
            -If the security group is not specified the instance is launched with default SG.
            -SG rules can be modified at anytime, after instance launch as well.
-           
+     
+  IMPLEMENTING AUTO SCALING USING EC2:
+     During the festive season, there is huge traffic to so many websites and applications to maintain crashes. Manually increasing the workload on the servers and 
+     scaling them according to the needs is challenging. So AWS ASG(Auto scaling groups) wil offer auto scaling wheneevr necessary.
+     Auto scaling ensures:
+      --High availability
+      --Improve faul tolerance
+      --lower costs
+    *EC2 Auto-Scaling Groups - Working Concepts:
+    what is auto scaling groups: auto scaling groups are a logical collection of related EC2 instances.
+    --minimum size of auto scaling group ensures that the number of EC2 instances in the group never goes below
+    that size.
+    --Desired capacity of the group can be set, to ensure that the auto scaling group has that many instances at a given point of time.
+    --maximum size of the auto scaling group, controls the maximum number of EC2 instances to which the group can scale.
+    *Auto scaling benefits:
+      --Improved fault tolerance: In EC2 instance, if auto scaling detects unhealthy instance, then it terminates and launches a new one to replace it. In multi -AZ 
+      deployment scenario, in case of the failure of an AZ, the scaling can launch instances in another available EC to compensate
+      --Higher availablility: EC2 auto scaling always ensures that your app;ication has the right amount of capacity to handle the oncoming traffic demands.
+        scale based on traffic.
+      --Improved cost management: With auto scaling you dont need to provision capacity before hand, you scale in and scale out based on the requirement, and you pay
+      for the capacity you use.
+    *Launch configuration: A launch configuration is a set of configuration settings for an instance which the auto scaling group uses to launch EC2 instances
+      --In a launch configuration you need to specify information and settings required for launching the instance which include 
+         -Amazon machine image(AMI) ID,
+         - Instance type
+         -Key-pair
+         -Security groups
+         -Block device mappings
+         -EC2 user data if any
+         -Other instance configuration parameter's.
+       So launch confirguration acts as the pre defined instances launch setting using which auto scaling groups can launch instances automatically based on scaling policies.
+       Launch configurations cannot be modifies after the creation and only one launch configuration can be specified for an auto scaling group.
+       You can use a launch template for an auto scaling groups as well.
+       -- A launch template and launch configuration are similar, as it also specifies configuration information required to launch instances by an auto scaling group.
+      Types of scaling:
+       1) Manual scaling: As the name suggests you can change the size of an auto scaling group manually either by adjusting the desired capacity or by updating
+         instances attached to the auto scaling group.
+       2) Dynamic scaling: You can define how to scale the instance capacity in the group in response to changing the demand. you specify scaling policies to scale your 
+         auto scaling group in response to demand. 
+         example: Scaling policy can be set which automatically scales the instance in the auto scaling group if the average CPU utilization of the instance go beyond
+         60%.
+       3) Scheduled scaling: You can specify your own scaling schedule. scaling actions for the auto scaling group are automatically performed as a function of time
+           and date. Ex: If your application has a predictable traffic increase on a specific day of week, you cna choose to scale out on that specific date and time 
+           and then scal eback in after the schedule.
+          So, based on your requirement or workload patterns you can choose to perform either, manual scaling or dynamic or scheduled scaling.
+          
+         
+       
+       
+     
+    
+    
+     
             
      
         
