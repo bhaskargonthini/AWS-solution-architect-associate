@@ -672,11 +672,70 @@ AWS Identity services:
 
 AWS- COMPUTE AND NETWROK SERVICES:
 
- Running workloads on EC2:
+ *runninng workloads on EC2:
    Amazon machine Image(AMI): When EC2 instance is launched, An AMI is the first thing that must  be selected, 
       --It is a read only file systme
       --It includes OS-Windows or linux or other softwares before launching an instance
       --AMI ID is specific to a region.
+  *EC2 Instance types: 5 types
+     1)General purposes: Provides balance in between compute, memory and networking. eg: t2.micr0,m5.large etc...
+     2) compute optimized: The instances under this category requires high performance processors. Suited for workloads like batch processing, scientific modelling 
+        and compute intensive applications. eg: c6.large, c5.large etc..
+     3)memory optmized: These are instances deliver to provide fast performance like analytics and in-memory database. eg: r5.large, x1.16xlarge etcc 
+     4)accelerated computing instance: These type of instances provides hardware accelerations like GPU accelerated hardware. suitable for workloads 
+     such as deep learning, machine learning , high floating-point workloads and seismic analytics. eg: p3.2xlarge, p2.xlarge etc..
+     5)storage optimized: These type of instances are suited for workloads which require high sequential read and write access. such as NOSql database, 
+     data warehousing and high performance workloads. eg: i3.large, d2.xlarge etc...
+         With AWS EC2 we will get large variety of instances ranging from small type of configuration like 1vCPU 500MB to high configurations like 448 CPU 
+         cores with 28TB memory.
+   *AWS Instance Launch Types:
+     1) On-demand Instances: In this launch type instance, you will pay for duation you have used and there is no long term commitments. They are charged
+     for only "running" state instaces. suited for short term and irregular workloads.
+     2)reserved Instances: These are meant for the predictable and long running workloads which can run more than an year. commitment term- 1 or 3yrs. 
+     Upto 72% discount as compared to on-demand launch instance. Three types of payments is possible: No-upfront, partial upfront and all upfront.
+       reserved instances has three types again: 
+       standard RIs: suited for steady state usage
+       Convertible RIs: ability to change instance family/attributes
+       Schedules RIs: launch instances in a specific time frame
+     3) Spot instances:  In this aws allows unused EC2 instances in an availabilty zone, to be purchased at a price much lower than the on-demand pricing. 
+         you can get discount upto 90% as compared to on-demand pricing. Spot instances are meant for various workloads which are stateless, fault tolerant,
+         test and development workloads and workloads which are resistance to interuptions.
+    * EC2 Instance Tenancy: Based on the tenancy of the underlying hardware where the EC2 instances will be launched, there are 3 different launch types
+        1) Shared Tenancy: This is the default tenancy. The underlying physical hardware of the EC2 instances is shared with other AWS customers, but 
+            all the instances will run in isolation without any collision. this is budget friendly option.
+        2) Dedicated Hosts: Entire physical server dedicated to an aws user, you will get an entire physical server for use to launch EC2 instances.
+            Full control over instance placement. full visibilty into the ssockets and physical cores. It is expensive but useful for the companies which 
+            follows strict regulatories about their product. It is suited for scenarios when software pr applications running have a complex licensing model
+            Like: BOYL(bring your own license.
+        3) Dedicated instances: Entire physical server dedicated to an aws user. The underlying physical server is not shared with other aws users but may be
+            shared with instances in the same aws account. No visibility over the sockets or physical cores.
+    * EC2 Instance Storage:  
+       EBS Volumes: EBS volumes provide persistent and durable block level storage for the EC2 instances. Instance storage dependent on instance type and family.
+       Instance store volumes: It proviedes temporary block level storage for the instances. Data is lost when the instance is stopped and then started or if 
+       it is terminated. Instance storage is dependatn on instance type and family.
+   * EC2 Placement groups: By default instances spread across underlying hardware in an AZ.
+       --Reduces risk of correlated failure
+       -- Custom placement groups can be created based on workload requirements.
+       Based on stratagy there are of three types:
+        1)Cluster placement strategy: It allows instances to be tightly grouped in an availability zone.
+             This enables workloads to achieve low-latency network performance.
+        2) Partition strategy: It allows to spread instances acorss logical paritions such that group of instances in one partition do not share the underlying 
+              hardware with other groups. This is suited for distributed and replicated workloads such as hadoop, kafka etc..
+        3) spread strategy: It strictly places a groupof instances acorss distinct underlying hardware to reduce correlated failures.
+    * EC2 security groups:
+         when EC2 instances are launched in an availability zone, a virtual firwall called security group, and the loads the instance which controls the inbound
+         and the outbound traffic of the EC2 instance using inbound and outbound rules.
+         --It is an entity which exist independently from the EC2 host and it is a part of AWS VPC infrastructure. Some key points are
+           -In security group the inbound rules control the traffic incoming to the instances and the outbound rules control the traffic outgoing from the instance.
+           - One instance can be associated with multiple SGs.
+           -If the security group is not specified the instance is launched with default SG.
+           -SG rules can be modified at anytime, after instance launch as well.
+           
+            
+     
+        
+        
+   
       
     
         
