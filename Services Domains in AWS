@@ -736,7 +736,7 @@ RUNNING WORKLOADS ON EC2:
      scaling them according to the needs is challenging. So AWS ASG(Auto scaling groups) wil offer auto scaling wheneevr necessary.
      Auto scaling ensures:
       --High availability
-      --Improve faul tolerance
+      --Improve fault tolerance
       --lower costs
     *EC2 Auto-Scaling Groups - Working Concepts:
     what is auto scaling groups: auto scaling groups are a logical collection of related EC2 instances.
@@ -747,7 +747,7 @@ RUNNING WORKLOADS ON EC2:
     *Auto scaling benefits:
       --Improved fault tolerance: In EC2 instance, if auto scaling detects unhealthy instance, then it terminates and launches a new one to replace it. In multi -AZ 
       deployment scenario, in case of the failure of an AZ, the scaling can launch instances in another available EC to compensate
-      --Higher availablility: EC2 auto scaling always ensures that your app;ication has the right amount of capacity to handle the oncoming traffic demands.
+      --Higher availablility: EC2 auto scaling always ensures that your application has the right amount of capacity to handle the oncoming traffic demands.
         scale based on traffic.
       --Improved cost management: With auto scaling you dont need to provision capacity before hand, you scale in and scale out based on the requirement, and you pay
       for the capacity you use.
