@@ -776,8 +776,52 @@ RUNNING WORKLOADS ON EC2:
            and then scal eback in after the schedule.
           So, based on your requirement or workload patterns you can choose to perform either, manual scaling or dynamic or scheduled scaling.
           
-         
-       
+   MANAGING APPLICATOINS TRAFFIC USING AWS LOADBALANCER:
+        **Introduction to AWS Elastix Load Balancing(ELB):
+          After implementing auto scaling for the EC2 instances, the solutions architect were facing a new challenge. For example, due to increases in the traffic
+          of an online fashion website, the average application hits to their online web store increase to 10000 hits per day. with such increase in traffic 
+          customers are facing generla slowness in the application, due tot this the number of EC2 instaces desired to maintain the application traffic had to be
+          increased substabially. Their in-house load balances are unable to scale to meet the growing application traffic. They require a solution from AWS which
+          will allow them to manage the huge network traffic between the EC2 instances and increase application responsiveness and can scale automatically based on
+          the application traffic. so for this scenario AWS offers elastic load balances service which can manage the application traffic between multitple EC2
+          instances and scale itself automatically to meet the growing netwrok traffic of the application.
+        --AWS Elastic Load Balancer: Elastic load balancer is a scalable solution from AWS which can automatically distribute traffic across multiple targets, 
+        such as EC2 instances, containers and lambda fucntions. ELB can handle the varying traffic load of your application either in a single availabilty zone or
+        across multiple availability zones in a region. ELB offers features such as high availability, automatic scaling and ronust security measures to make 
+        applications fault tolerant. features and benefits of elastci load balancer
+        -- High availabiltiy, it can automatically distribute traffic across multiple targets or a group of EC2 instances, spread acorss multiple avaialbility zones
+        in a region to make your application highly available to end users.
+        -Health checks: ELB offers health checks: It can detect unhealthy targets, and stops sending traffic to the, for consistent user experience. It offers 
+        security, as ELB can reside within a VPC and traffic can be controlled using a security group. It provides the feature of integrated certificate 
+        management. 
+        --SSL/TLS termination: Load balancing can be done either at layer seven or at the application level or at layer 4 for TCP and UDP traffic or at layer of the
+        OSI network model. Performance metrics and monitoring can be easily achieved as it is integrated with amazon cloud watch. 
+     ** Elasctic Load balancer- Key concepts:
+         --Working of elastic load balancer: The load balancer is configured to accept incoming requests by configuring a listener.
+         --A listener is the process which keep on checking for incoming connection requests and is configuered with a protocol and port number for connection from
+         clients. requests from the listener are forwarded to the resources under the registered targets of the load balancer. The registered targets can be EC2
+         instances in single or multiple availability zones, containers, IP addresses or lambda functions. AWS provides 3 types of elastic load balancer:
+         1) Application load balancer: It is a layer seven load balancer and is suited for web applications with http and https traffic.
+           --It operated at the application layer or the 7th layer of the open systems interconnect(OSI) model. It supports Http type of traffic and is suited for
+           web application workloads or containerized workloads. its features include, Path based routing, host based routing, native http/2 support, user authenticaton etcc.
+         2) Network Load balancer: It is a layer four load balancer and is used for providing ultra high performance for TCP and UDP traffic.
+           --It operates at layer four of the open systems interconnect(OSI) model. It supports various TCP, TLS and UDP traffic. It can handle millions of 
+           requests per second, provides ultra low latency and is suited for workloads which require very high network performance. 
+         3) Gateway Load Balancer: It is a layer three load balancer. which listens for a IP packets. Classic load balancer is a previuos load balancer for http,
+             https and TCP traffic.
+             -- It operates at the layer three of the open system interconnect(OSI) model. 
+             --This type of load balancer listens for packets across all ports and forwards it to the target that specified in the rule of the listener. This 
+             load balancer exchanges application traffic using the GENEVE protocol on port 6081. 
+             --It allows you to deploy, scale and manage virtual applicances such as firewalls, intrusion detection and prevention systems. 
+         4) Classic load balancer is a previous generation load balancer for http, https and TCP traffic. Application, network and gateway load balancers are 
+         newer generations of load balancers offered by AWS and classic load balancer is a previuos generation load balancer. AWS recommends the usage of the 
+         newer generation of load balancers. 
+         benefits of migrating from classic load balancer:
+           --ALB supports various traffic routing policies.
+           --ALB supports redirecting of requests from URL's
+           --NLB can scale to millions of requests per second.
+           --NLB supports assigning of static IP address.
+           
        
      
     
