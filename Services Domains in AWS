@@ -821,6 +821,51 @@ RUNNING WORKLOADS ON EC2:
            --ALB supports redirecting of requests from URL's
            --NLB can scale to millions of requests per second.
            --NLB supports assigning of static IP address.
+     DEPLOYING WEB APPLICATIONS USING ELASTIC BEAN STALK:
+        why do we need elastic beanstalk requirement? due to great global success of the websites, they need to keep designing their web site frequently to 
+        handle the bugs and give new features to the customers. Challenges like continous designing and development, and reducing management and time
+        to market. They needed a platform that can help them to develop and deploy features to their web application in the least possible time.
+     So here comes elastci beanstalk which is a platform as a service(PaaS) to improve team productivity by allowing developers to easily develop and deploy
+     fearures to their web application.
+     Elastic beanstalk: It is solution which allows for deploying and scaling web application and services written using java, .Net, PHP, etc.. on popular
+     servers such as apache, Ngnix, IIS etc..With AWS elastic beanstalk developers can easily upload their application code and service automatically takescare 
+     other aspects such as resource provisioning, load balancing,auto scaling and monitoring. 
+     Elastic beanstalk features and benefits:
+      --Developer productivity- Since beenstalk operates, provisions and manages the infrastructure and the application stack, it frees the developer from having
+      to worry about managing and configuring servers, databases, load balancers, networks etcc.
+      --Complete resource control: Users have the freedom to choose and select the aws resources such as EC2 instance typ, and allows to explore under the box
+      and retain full control over the aws resources powering the application of the user. 
+      Monitoring: Elastic beanstalk provides a unified interface for monitoring application health, along with logging and tracing.
+      --Scaling: elasctic beanstalk leverages auto scaling and load balancers to automatically scale your application based on the applications need.
+      --Deployment options: With beanstalk to deploy your applications you can choose from mulitple deployment policies such as- All at once, rolling and blue/
+      green.
+      --Complaince: Elastic beanstalk is compliant with various international standards such as ISO, PCI, HIPAA eligility etccc. making it suitable for 
+      various types of compliant related workloads and applications. 
+   ** Working with elastic  beanstalk is a compute service offered by AWS under platform as a service(PaaS) model.
+      --Its supports applications developed on Go, Java, .Net,  node js, php, python and ruby.
+      The following workflow illustrates the working of the elastic beanstalk:
+      1) create the application
+      2) upload a version of the applicaition in the form of an application bundle, for eg a WAR file in the case of a java application.
+      3) after that elastcic beanstalk automatically launches the environment such as amazon EC2 resources, auto scaling groups, load balancers etccc. to run the
+      uploaded application.
+      4) once the application is delployed succefully, it can be easily managed by a unified console, and updates to a version and new revisions can be deployed
+      seamlessly.
+   ** Elastic beanstalk concepts:
+     -- Application : It is defined as a logical collection- of other beanstalk components include, environments, versions and environment configurations.
+       Conceptually and application in beanstalk is a folder. 
+     -- Application version: Applications version in beanstalk is the name suggests point to an iteration of deployment code for
+       web application. The application version are kept in a S3 bucket created by beanstalk, The bucket contains the deployable code such as JAVA WAR file etc
+     --Environment:  Environment in beanstalk is the collection of AWS resources which beanstalk provisions to run your application version.resources include
+         EC2  instances, auto scaling groups etcc.
+     -- Environment tier: While launching an application on beanstalk an environment tier needs to be specified which which determines the type of AWS resources
+         to be provisioned. two types: Web environment tier HTTP(S) applicaitons. worker environment tier - backend applications.
+     --Environment configuration: It allows you to specify a collection of parameters and settings,- which defines how the provisioned environement is created
+        and behaves. configuration settings include - EC2 instance, networking, storage etc..
+     --saved configuration : Elastic beanstalk allows you to save environment configuration in the form of a template, it is refered to as configuration templates.
+        this saved configuration can be applied to any existing environment to update its configuration. 
+    --Platform: platforms in the elastic beanstalk is the entire collection of operating system, programming language runtime web and application servers.
+      Beanstalk offers a variety of platforms for various application types.
+          
            
        
      
