@@ -866,6 +866,89 @@ RUNNING WORKLOADS ON EC2:
     --Platform: platforms in the elastic beanstalk is the entire collection of operating system, programming language runtime web and application servers.
       Beanstalk offers a variety of platforms for various application types.
           
+          
+INTRODUCTION TO SERVERLESS COMPUTE - AWS LAMBDA:
+   AWS lambda is a serverless compute service offered by AWS. Lambda provides the featured a virtually run your code for any type of application or back in 
+   service with zero administration. 
+   -- AWS Lambda allows users to perform serverless computing where your application run on servers completely managed by AWS. So this allows you to run your
+   application code without thinking about servers. AWS lambda is an event triggered function as a service which can run your application based on events from
+   other aws services or from mobile and web applications
+** Features and benefits of AWS Lambda:
+  --aws lambda allows you to build custom backend services that are triggered based.
+  --aws lambda supports almost all programming languages and libraries so you can easily bring your own code to lambda. 
+  --aws lambda has built in fault tolerance abd again automatically scale to handle a huge number of requests within milliseconds of receiving it.
+  --with aws lambda, you can package and deploy functions as container images.
+** Use cases of AWS Lambda:
+  --aws lambda can be used for data in real time file processing by running code in repsonse to changing data and files in aws services such as dynamo db, s3,efs etcc.etc
+  --aws lambda can also be used to provide rich user experince for web and mobile applications by utilizing lambda for consistent performance.
+
+Other AWS Compute Services:
+  1) AWS Batch
+      As a fully managed service, Batch would assist you to run batch computinG workloads of any scale.
+     AWS Batch removes the undifferentiated heavy lifting of configuring and managing the required infrastructure, similar to traditional batch computing software.
+     Components of AWS Batch
+       --Job:A unit of work that you submit to AWS Batch.
+        --Job Definition:
+           • A job definition specifies how jobs should be ruN
+         • It acts as a resource blueprint in your job.
+       --Job Queue:
+          • A job submitted to a job queue, resides until it is scheduled onto a compute environment.
+       --Compute Environment:
+           • A set of managed or unmanaged compute resources that are used to run jobs.
+    **AWS Batch is optimized for batch computing and applications that scale through the execution of multiple jobs in parallel.
+       Some of its use cases are -
+         --Deep learning,
+         --genomic analysis,
+         --financial risk models,
+         --Monte Carlo simulations,
+         --animation rendering,
+         --media transcoding,
+         --image processing,
+        --and engineering simulations are all excellent examples of batch computing applications.
+   2) AWS Light sail:
+       AWS LightSail
+         • Ideal for simpler workloads, quick deployments and getting started on AWS.
+         • Designed to start small, and scale as you grow.
+         • LightSail includes everything you need to launch your project quickly on a predictable
+            price
+         • LightSail offers a range of operating system and application templates
+         • Use cases such as web servers, developer environments, and small database
+         • Ideal for simpler workloads, quick deployments and
+           getting started on AWS.
+         • Designed to start small, and scale as you grow.
+         
+   3) AWS Outposts:
+     AWS Outposts offers IT as a Service
+     AWS Outposts is a fully managed service that offers truly consistent hybrid experience with the same AWS infrastructure, services, APIs, SDK tools
+     Making it Deployable in virtually any data center or co-located space
+     AWS Outposts supports Compute, Storage, database and other Cloud Services to run locally.
+      Outposts is ideal for workloads that require low latency access to on-premises systems
+    AWS Outposts is available in 2 options –
+      --First is Native AWS, in which you can use the same APIs, and the service features as that of AWS Cloud.
+      --Second is VMware cloud on AWS, which allows to develop and migrate VMware environment to the AWS Cloud.
+  4) AWS Wavelenght:
+     AWS Wavelength is an AWS Infrastructure which offers optimized mobile edge computing applications.
+     AWS Wavelength extends the AWS cloud to a global network of 5G edge locations.
+     It allows you to build applications that require ultra-low latency.
+     Services supported in Wavelength are a part of AWS VPC Infrastructure.
+     Wavelength zones are currently supported in the US, Japan, South Korea and European regions.
+
+
+
+
+
+
+      
+     
+No need to install or manage any batch computing software, which allows you
+to focus on analyzing results and solving problems.
+4
+
+  2) AWS LightSail
+  3) AWS Wavelength
+  4) AWS Outposts
+
+
            
        
      
