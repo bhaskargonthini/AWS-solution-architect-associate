@@ -933,20 +933,282 @@ Other AWS Compute Services:
      Services supported in Wavelength are a part of AWS VPC Infrastructure.
      Wavelength zones are currently supported in the US, Japan, South Korea and European regions.
 
+SECURING RESOURCES AWS CLOUD USING AMAZON VPC:
+  Why do we need it? As Trends Fashion Online has migrated their applications to infrastructure on the AWS cloud, the solutions architect in the team requires
+  a solution which can allow them to manage the network of their applications on the AWS Cloud. AWS provides VPC or Virtual Private Cloud service, 
+  which can allow to create and customize your own network on the AWS cloud, to improve security for the deployed applications and resources.
+ ** What is Amazon VPC?
+   VPC or Virtual Private Cloud is one of the foundational services offered by AWS. It allows you to launch AWS resources in a logically isolated network
+   which you can define and control. This virtual networking environment gives you full control and allows you to choose your own IP Address range, Subnets,
+   Route Table configuration, Network gateways and much more.
+   Benefits of Amazon VPC:
+     Using Amazon VPC, you can create secure and monitored network connections. It provides features that allow to perform inbound and outbound filtering at
+     the subnet and instance level. It also provides monitoring features to screen network traffic. Amazon VPC is easy to use and simple to set-up. It decreases
+     the time to setup, manage and validate a network configuration. Amazon VPC is highly customizable, as it allows to create and manage your own subnets, and 
+     the entire network can be configured tailored to the workload's requirement.
+  **Overview of Virtual Private Cloud(VPC):
+    --A VPC is a private network in the AWS cloud, which is a regional resource. So, the scope of a VPC is within the AWS region in which it was created. 
+    --VPC’s are associated with a Private CIDR range of either an IPv4 address or IPv6.
+    --VPC’s are divided into sub-networks or subnets, which spans across an Availability Zone in the region.
+    --Each subnet has its own CIDR IP range which is a subset of the VPC CIDR range. Instances are launched into any one of the subnets and are allocated 
+      a Private within the IP range of the subnet.
+    --VPC’s have a router and a route table attached to the subnets, which allows to control the flow of traffic based on the routing rules defined. Since 
+      VPC’s are private networks, to enable access to the Internet, an Internet Gateway is attached to the VPC.
+    --VPC’s have Network Access Control Lists or NACLs at the subnet level to control the Inbound and Outbound traffic to them.
+ **Amazon VPC - Overview:
+    1. Subnets which span across an availability zone.
+    2. Routers and Route Table which control the traffic routes within the VPC.
+    3. Internet Gateway, which is responsible for providing Internet access within the VPC.
+    4. Network Access Control or NACL’s which controls the inbound and outbound traffic entering the VPC Subnets.
+ **AWS Default VPC - Overview:
+    --Every account in AWS, is provided with a default VPC in every region. This VPC has a private IPv4 CIDR block of 172.31.0.0/16, which provides up-to 65,536
+      private IP addresses for resources inside this VPC.
+    --The default VPC has subnets in all the Availability Zones in the region, and the subnets have an IP range of /20, which is a subset of the VPC IP range.
+    --The default VPC is attached with an Internet Gateway, to provide Internet Access
+      within the VPC.
+    --All the default Subnets in the VPC are Public Subnets, as in the route table attached to them, they have a route to the Internet Gateway, which provides
+      Public Internet access for resources within the default subnet.
+    --Default subnets are associated with a default Network ACL, which allows all Inbound and Outbound traffic.
+    --Instances Launched in the Default Subnets, have both a Private IP and a Public IP assigned to them.
+    --A default Security Group is also provided, which can be used to launch the Instances. The default VPC is provided to allow users to get easily started 
+    with the AWS console and its services.
+  **VPC – Route Tables and Internet Gateways:
+     When a VPC is created, a Route Table called as the Main Route Table gets created along with it.All the Subnets in a VPC are implicitly associated with 
+     this Main Route Table. The Route table comprises of a set of rules, called as routes that determine the flow of network traffic from your subnet. It is
+     controlled by an Implicit VPC router. Custom Route Tables can also be created, and it can be associated with a subnet of choice. One Subnet can be 
+     associated with only a single Route Table.
+   --A Route Table, comprises a set of rules called as routes. Every Route in the table has a destination and a target.
+   --The Destination is a CIDR range of IP address, which specifies where you want the traffic to go.
+   --Target specifies, either a gateway, a network interface, or connection through which to send the destination traffic, example an Internet Gateway.
+   --For communication within the VPC a Local Route is added in the table by default as shown.
+   --Destination for this local route is the CIDR range of the VPC. Target is local. This route ensures that traffic which wants to reach a destination within
+     the VPC is routed locally and kept within the VPC.
+   --Subnets associated with this Route Table, will allow EC2 instances launched within them to communicate with each other because of this local route.
+   --To provide public Internet access to the VPC subnets via the Internet Gateway a route with Destination as 0.0.0.0/0 is added, and the target is the 
+     Internet Gateway a shown.
+ **Internet Gateways(IGW):
+   --Internet Gateway is a VPC Component which is highly available, redundant and horizontally scalable.
+   --It allows communication between the VPC and the internet.
+   --It provides a target which can be added in the VPC route table for enabling internet- routable-traffic.
+     It also performs network address translation for instances that have Public IPv4 addresses.
+   --It supports both IPv4 and IPv6 traffic, and it does not cause availability risks or bandwidth constraints on the network.
+   
+**VPC and Subnets:
+   --A VPC is a logically Isolated virtual private network, which is dedicated to a single AWS Account. It is used to launch AWS resources such as EC2 Instances,
+     RDS databases, etc.,
+   --A VPC is a regional resource, so the scope of a VPC is within the AWS Region in which it was created. When a VPC is created, an IPv4 address range must be
+     specified in the form of a CIDR block. The VPC sizing for IPv4 must be /16 or smaller. As per AWS documentation it is recommended to specify a CIDR block 
+     from the Private IPv4 address ranges as specified in RFC 1918.
+   --You can additionally choose to specify an IPv6 CIDR block for the VPC. Resource created within the VPC, will be assigned a Private IP within the range 
+     specified during VPC creation.
+**VPC Subnets:
+  When a VPC with an IPv4 CIDR block say 192.168.0.0/16 is created in an AWS region, it spans across all the availability zones in the Region. After creating
+  the VPC, Subnets are to be created. One or more subnets can be created for each Availability Zone.
+  CIDR blocks must be specified for each Subnet, which is a subset of the VPC CIDR block.
+  Each subnet created, can reside only in a single Availability Zone and cannot span across zones.
+  Resources such as EC2 instances and RDS databases are created in the subnet or AZ of choice, and are assigned a Private IP from the subnet CIDR block
+**Types of Subnets:
+  1) Public Subnet: If a subnet is associated with a route table that has a route to the internet via the Internet Gateway, then the subnet is known as a 
+    Public Subnet.
+     --If a VPC with an Internet Gateway attached to it, has a subnet which is associated with a Route Table either a custom route Table or the Main Route 
+       Table, and if there is a route which directs traffic to the Internet Gateway to enable Internet accessibility within the subnet, then the subnet is
+       called a Public subnet.
+     --AWS resources such as EC2 Instances in a Public subnet, will be able to communicate with the internet over IPv4 if they have a Public IPv4 or an Elastic
+       IP Address assigned to them.
+       
+  2) Private Subnet: Opposite to Public Subnets, Private subnets are those subnets which do not have a route to the Internet Gateway. Even if a VPC has an 
+      --Internet Gateway attached to it, if a subnet in that VPC is associated with a Route Table either a custom route Table or the Main Route Table, and there 
+      is no route which directs traffic to the Internet Gateway, then the subnet becomesa Private Subnet. 
+      --A single VPC can have both Public and Private Subnets, by associating them with different route tables with the appropriate routes.
+**VPC – Network ACLs and Security Groups:
+   **Security Groups:
+       --Security Groups act like a virtual firewall for the EC2 Instances. When an EC2 Instance is launched within a subnet in a VPC, it is associated with a
+       --Security Group which is a virtual firewall.
+       --Security Groups, control the Inbound and Outbound traffic to and from the Instance.
+       --Security Groups, support only Allow rules, not deny rules.
+       --Security Groups are stateful, which means if a request is sent from an instance outbound, then the response traffic is allowed to flow back in regardless
+         of the inbound rules. One Security Group can be attached to multiple Instances.
+       --Security Groups are components of VPC, and they are specific to the VPC in which it was created.
+       By default, in a security group all Inbound traffic are blocked, and all outbound traffic is allowed.
+       --The Inbound Rules are specified in a tabular format as shown. Type specifies, the type of traffic whether SSH, HTTP or any other which is to be allowed.
+       --Protocol is used to specify whether the Inbound traffic is of type TCP or UDP.
+       --In Port range you specify the ports to which the traffic will be allowed.
+       --In source, you specify the origin from where requests will be allowed to enter. An Example Inbound Rule is shown, this rule allows SSH TCP traffic on 
+         Port 22, from a system with the IP address as shown. This rule will only allow systems with the IP specified to connect to the Instance via SSH as shown.
+       --Another example Rule which allows HTTP traffic from source 0.0.0.0/0 (anywhere) to enter the instance Out bound Rules are also specified in a similar way,
+         with the only exception that
+       --Instead of source, destination is to be mentioned. The given outbound rule, allows All Outbound traffic originating from the instance
+   **Network Access Control Lists (NACLs):
+     --Network Access Control Lists or (NACLs) are optional security layer for the VPC, using which the I nbound and outbound traffic of subnets can be controlled.
+     --When a VPC is created, a NACL is created along with it called as the default NACL. All subnets w ithin the VPC are implicitly associated w ith this default
+       NACL, unless explicitly associated with any other.
+     --The default NACL, allow s all I nbound and Outbound traffic to and from the subnet. One subnet can be associated w ith only one NACL, but one NACL can be 
+        associated with multiple subnets.
+     --NACLs support both allow and deny rules.
+     --NACLs are stateless, w hich implies, that response to allow ed inbound traffic is dependent on rules defined outbound and v ice-versa. It signifies that 
+       responses to inbound and outbound traffic must be explicitly allowed.
+    *Network Access Control Lists (NACLs):
+       --NACL comprises of the following parts. Every NACL Rule has a number associated w ith it. NACL’s rules are ev aluated based on the rule number assigned 
+         to them, starting with the lowest rule number. Rules with lower number are applied, regardless of any other rule w ith a higher number contradicting it.
+       --Type specifies the type of traffic to be allowed or denied, example SSH or HTTP.
+       --Protocol allow s to specify any protocol that has a standard protocol number.
+       --Port range specifies the ports through w hich traffic w ill be allow ed or denied.
+       --Source specifies the origin of the traffic and the destination specifies the destination for the traffic, for inbound and outbound rules respectiv ely. 
+         They hav e to be in the form of CI DR ranges.
+       --Allow or Deny, allow s you to explicitly allow or deny the traffic rule specified.
+    **NACLs and SGs Comparison:
+      Now let us look at the comparison between NACLs and Security Groups.
+      --NACLs are resources applied at the subnet lev el, whereas security groups are applied at the instance lev el.
+      --NACLs supports both Allow and Deny action for rules, whereas Security Groups support only Allow rules.
+      --NACLs are stateless, whereas Security Groups are stateful.
+      --NACL rules are ev aluated based on the rule number assigned to them, whereas in security groups, all rules are ev aluated to allow a traffic.
+      --NACLs are implicitly applied to all instances in the subnet in w hich they are associated, whereas Security Groups must be explicitly attached to an
+        Instance.
+    **VPC – NAT Gateway:
+       --NAT Gateways are VPC components which allow, instances in the private subnet to communicate to the internet or other AWS services, but prevent the 
+          internet from initiating an incoming connection with those instances.
+       --NAT Gateways are auto-scaled and support bandwidth from 5Gbps to 45Gbps.
+       --NAT Gateways support, TCP, UDP and ICMP protocols
+       --NAT Gateways are created in a public subnet.
+       --NAT Gateways have to be associated with an Elastic IP address.
+    **VPC Architecture with NAT Gateway:
+        Now let us look at the architecture of a VPC with a NAT Gateway. Consider a 2-tier architecture, in which Web Servers are running in a Public Subnet 
+        and Database servers are running in a Private Subnet in a VPC as shown. The traffic is controller by the cloud router in the VPC, and the VPC has 
+        an internet gateway attached to enable internet access in the VPC. The Public Subnet is associated with a route table, that has a route to the public 
+        internet via the Internet Gateway as shown. The Private Subnet is associate with a route table, that only has a local route. To enable outgoing only 
+        internet access a NAT gateway has to be created in the Public Subnet, and a route has to be added in the route table of the Private Subnet as shown.
+  MULTI REGION AVAILABILITY USING AMAZON ROUTE 53:
+    Why do we need route 53?
+    The business of the organization have grown and has shown a huge success due to the introduction of AWS services in their architecture, and their team is
+    looking to expand operations with a global out-reach. With this global setup they will be getting requests to their hosted web application, from users from
+    their respective regions. They require a highly-scalable DNS service which can route the requests coming from the user of a specific region to the appropriate 
+    end point based on different routing policies.
+   AWS Provides a highly available and scalable DNS web service which is Route 53 which can help to solve this business challenge.
+   Let us now explore what is Amazon Route 53 and its features and benefits:
+   Amazon Route53 is a highly scalable and available Domain Name system, domain name registration, and health-checking web service.
+   Route53 provides an extremely reliable and cost-effective means to route end users accessing Internet web applications by translating domain names to IP 
+   addresses.
+   Route53 also provides with DNS purchase and management settings for domain names by providing domain registrar services.
+  **Route53 – Features and Benefits:
+    With Amazon Route53 DNS Service you get –
+    • High Availability and Reliability as it is built using AWS’s highly available and reliable infrastructure, and the distributed nature of the DNS servers 
+       ensures the consistent ability to route end users to your application.
+    • Route53 is backed by a 100 percent SLA guarantee by AWS, which ensures that there is no downtime for the service in each billing month.
+    • Route53 is simple to use, as it provides a self-service sign-up and starts to answer queries within minutes of setup. It uses a global anycast network of
+      DNS servers, due to which it is fast and offers low query latency for end-users.
+    • It provides flexible routing policies for traffic based-on endpoint health, geographic location and latency.
+    • It is Integrated with AWS Identity and Access Management to provide unique fine- grained access control and security.
+    • Route53 is designed to work well with other AWS services such as Amazon EC2 Instances, Elastic Load Balancer, CloudFront Distributions and, etc.,
+ **Amazon Route53 Components and Record Types:
+  *Working of Route53 DNS:
+    Route53 is a managed DNS service provided by AWS. But what exactly does a DNS service do? Let us explore this with a scenario. Whenever a user types an URL
+    in the web browser for example say -> www.example.com, this request is forwarded to a Domain Name Server such as Route53.
+    The DNS Server maps the URL or the domain name to an IP address, this IP address is the address of the endpoint where the application is hosted and 
+    subsequently the request is forwarded to this endpoint so that end users can access the hosted application.
+  Route53 provides you with – 
+    --Domain Name Registration wherein you can choose to register your own custom domain name.
+    --It provides you with Domain Name Resolution where Public DNS records can be mapped to IP addresses.
+    --Route53 additionally provides health checks to monitor the health and performance of your application endpoints, web servers and other resources.
+    --It also provides you with robust routing policies to route the traffic to the appropriate end point.
+  **Route53 – DNS Service:
+   • With Route53 Domain Registration you can register a new domain like www.example.com.
+   • If you already have a registered domain name with another registrar, you can optionally choose to transfer it to Amazon Route53.
+   • It provides registration for a variety of generic top-level domains such as .com or.org.
+   • It also provides geographical top-level domains such as .in or .us
+ **Route53 – DNS Resolution:
+   • With Route53 DNS Resolution feature, it routes internet traffic to your web application endpoint.
+   • It translates and map domain name URL’s to numeric IP addresses of servers where the applications run.
+   • Every request to a domain URL managed by Route53 is forwarded to the nearest global network of Route53 DNS servers
+ **Route53 – Health Checks:
+   • Route53 provides health monitoring of web and application endpoint servers.
+   • Cloudwatch can be configured with Route53, to monitor and send notifications  when resources are unavailable.
+   • Using Route53 Health checks, you can easily perform a Disaster recovery failover to a standby region in case of a failure of the primary active region.
+ **Route53 – Common Record Types:
+   Route53 DNS service supports a lot of Record Types. The most common record types supported by Route53 are –
+   --A Record – Which maps a hostname or a domain name such as www.example.com to an IPv4 address.
+   --AAAA Record - Which maps a hostname or a domain name such as www.example.com to an IPv6 address.
+   --CNAME Record – Which maps one hostname to another hostname, example – demo.example.com to new.example.com
+   --Alias Record – Which is similar to CNAME record, and allows to map and route traffic from a hostname to an AWS resource such as a S3 bucket etc.,
+ **Amazon Route53 - Routing Policies:
+   Route53 provides various routing policies based on different conditions. Those policies are –
+     • Simple Routing: In Simple Routing, you typically route traffic request to a single resource, like a web server to an application webpage.
+       When a user, types in a hostname on a web browser, the request is forwarded to Route53, and Route53 checks its records and replies with the IP
+       address value associated with that hostname. This is simple policy for routing, and for every hostname one value is returned.
+      If multiple values are returned for a single hostname, then in simple routing, a random value is chosen by the web browser client.
+     • Failover Routing: In Failover routing policy, there is a primary server which serves the application, and a Secondary server which remains in standby 
+       in case of Disaster Recovery.
+       The Route53 service has health checks configured with the Primary Server. So when a web browser makes a DNS request to Route53, based on the health check,
+       if the primary server is healthy then the request is forwarded to the primary server, or if the health check fails indicating the failure of the primary 
+       server, then in failover routing policy, it can intelligently and automatically start routing requests to the Secondary server.
+       Point to note here, the Primary and Secondary servers, can be any endpoints or EC2 instances in different geographical regions as well
+     • Weighted Routing: In weighted routing policy, if there are multiple application endpoints mapped to a single domain name in Route53, then you can choose
+        to control the percentage of requests going to a specific application endpoint. In weighted routing policy, in case of multiple application servers, 
+        weights are assigned to them to control the percentage of traffic incoming. So in this case when DNS requests come to the Route53 server, then 50 percent 
+        of the traffic will be processed by Server 1, 30 percent by server 2 and 20 by server 3.
+       The servers can be in different regions and Health checks can also be configured in this routing policy.
+     • Latency Based Routing: Using Latency based routing you can improve the performance of your users by serving DNS requests to an AWS region which provides
+       lowest latency, if your application is hosted in multiple AWS regions.
+      To visualize this, consider two application server endpoints running in North Virginia and Ohio Regions, the respective latencies from different user 
+      regions are shown. So based on Latency Routing Policy, and the Latency calculations, user requests coming from California and Iowa to Route53 are routed to
+      the servers having the lowest latency for improved performance.
+     • Geolocation Based Routing:Next is Geolocation Based Routing Policy.
+      Using Geolocation based routing policy you can choose the resources that will serve your user traffic based on the geographic location of your users.
+      To visualize this, if you have 2 application servers' setup in say North Virginia and Mumbai for US and India based users respectively, then DNS requests 
+      originating from say Oregon in US and Chennai in India to Route53 will be routed the appropriate geolocation-based server.
+      Using this routing policy you can choose to route users to application website relevant to specific region, and show content relevant to the geographic 
+      location of the user.
+  **Other AWS snetwork services such as :
+    AWS Global Accelerator
+    AWS Transit Gateway
+    AWS Direct Connect
+    AWS VPN
+    AWS Cloud front
+    AWS App Mesh
+   Refer the lex course to know abiut them more.
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
       
-     
-No need to install or manage any batch computing software, which allows you
-to focus on analyzing results and solving problems.
-4
-
-  2) AWS LightSail
-  3) AWS Wavelength
-  4) AWS Outposts
 
 
            
