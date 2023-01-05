@@ -13,7 +13,7 @@
   1) AWS EC2: Elastic compute cloud is one of the integral parts of the  aws ecosystme. EC2 enables on-demand,
   scalabale computing capacity in the aws coud.
   -Its basically a raw server that is given to you. You can do anything, make a web server or a operating system etc...you can make a ram of your choice, type of os
-  like linux or windows etc................................
+  like linux or windows etc........
   
   2) Elastic beanstack: you can quiclky deploy and manage applications in the aws cloud without having to learn about the infrastructure
   that runs those applications.In AWS EC2 you can make it to do anything, you can make it a web server, install softwares, make database server. But whereas elastic beanstack 
